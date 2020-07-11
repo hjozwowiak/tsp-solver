@@ -18,9 +18,10 @@ chatInput.addEventListener("keypress", (event) => {
 });
 
 channel.on("solution", (payload) => {
-    let messageItem = document.createElement("p");
-    messageItem.innerText = `[${Date()}] ${payload.body}`;
-    messagesContainer.appendChild(messageItem);
+    console.log(payload);
+    // let messageItem = document.createElement("p");
+    // messageItem.innerText = `[${Date()}] ${payload.body}`;
+    // messagesContainer.appendChild(messageItem);
 });
 
 channel
@@ -33,21 +34,24 @@ channel
     });
 
 const solveGreedy = () => {
-    channel.push("solve", {body: {
-        starting_point: {
-            index: null,
-            coords: [12, 34],
-        },
-        list_of_points: [
+    channel.push("solve", {
+        body: [
             { index: 0, coords: [96, 31] },
             { index: 1, coords: [51, 48] },
             { index: 2, coords: [46, 20] },
+            { index: 3, coords: [88, 83] },
+            { index: 4, coords: [42, 98] },
+            { index: 5, coords: [35, 91] },
+            { index: 6, coords: [12, 78] },
+            { index: 7, coords: [34, 40] },
+            { index: 8, coords: [6, 12] },
+            { index: 9, coords: [94, 89] },
         ],
-    }});
+    });
 };
 
-document.querySelector('#solveGreedy').addEventListener("click", () => {
+document.querySelector("#solveGreedy").addEventListener("click", () => {
     solveGreedy();
-})
+});
 
 export default socket;
