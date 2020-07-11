@@ -6,7 +6,7 @@ defmodule TspSolverWeb.SolverChannel do
   end
 
   def handle_in("solve", %{"body" => body}, socket) do
-    broadcast!(socket, "solution", %{body: body})
+    # broadcast!(socket, "solution", %{body: body})
     {:noreply, socket}
   end
 end

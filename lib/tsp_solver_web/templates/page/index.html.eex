@@ -1,4 +1,5 @@
 <section class="phx-hero">
   <div id="messages" role="log" aria-live="polite"></div>
   <input id="chat-input" type="text"></input>
+  <button id="solveGreedy">Solve greedy</button>
 </section>
