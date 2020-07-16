@@ -28,6 +28,7 @@ defmodule TspSolver.Solver.Helper do
       Enum.map(list_of_points, fn %{index: index, coords: coords} ->
         %{index: index, coords: Tuple.to_list(coords)}
       end)
+      |> Enum.reverse()
 
     {:ok, new_list_of_points}
   end
