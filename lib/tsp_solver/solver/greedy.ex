@@ -17,8 +17,6 @@ defmodule TspSolver.Solver.Greedy do
         point != closest_point
       end)
 
-    {[closest_point | list_of_points_from], remaining_points}
-
     solve_greedy([closest_point | list_of_points_from], remaining_points)
   end
 
