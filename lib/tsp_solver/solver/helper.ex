@@ -1,8 +1,4 @@
 defmodule TspSolver.Solver.Helper do
-  # def prepare_data_to_process(input) do
-  #   IO.inspect(input)
-  # end
-
   @spec prepare_data_to_process(list()) :: {:ok, map()}
   def prepare_data_to_process([
         %{"index" => starting_point_index, "coords" => starting_point_coords}
@@ -22,7 +18,6 @@ defmodule TspSolver.Solver.Helper do
   end
 
   @spec prepare_data_to_send(list()) :: {:ok, list()}
-
   def prepare_data_to_send(list_of_points) do
     new_list_of_points =
       Enum.map(list_of_points, fn %{index: index, coords: coords} ->
