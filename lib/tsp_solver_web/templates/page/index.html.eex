@@ -1,4 +1,15 @@
 <section class="phx-hero">
-  <div id="messages" role="log" aria-live="polite"></div>
-  <input id="chat-input" type="text"></input>
+  <div class="row">
+    <button id="generateInstance">Generate instance</button>
+    <button id="solveGreedy">Solve greedy</button>
+  </div>
+  <div class="row">
+    <div class="col-md-2 instanceContainer"></div>
+    <div class="col-md-10 solutionContainer">
+      <canvas id="resultCanvas" style="border: 1px solid #fff"></canvas>
+    </div>
+  </div>
+  <div class="row">
+    <p id="status"></p>
+  </div>
 </section>
