@@ -20,7 +20,7 @@ defmodule TspSolver.Generator.GenerateProblemInstance.Command do
     |> cast(params, @fields)
     |> validate_required(@fields)
     |> validate_length(:number_of_points,
-      max: (:max_x - :min_x) * (:max_y - :min_y),
+      max: (:max_x - :min_x + 1) * (:max_y - :min_y + 1),
       message:
         "Number of points cannot exceed the possible maximum number of points on a map of a given size."
     )
