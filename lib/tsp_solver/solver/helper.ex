@@ -29,7 +29,6 @@ defmodule TspSolver.Solver.Helper do
       Enum.map(list_of_points, fn point ->
         Map.from_struct(point)
       end)
-      |> Enum.reverse()
 
     {:ok, new_list_of_points}
   end

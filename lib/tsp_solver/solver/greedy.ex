@@ -1,6 +1,21 @@
 defmodule TspSolver.Solver.Greedy do
+  @moduledoc """
+  A module for executing a greedy pathfinding algorithm for solving a travelling salesman problem.
+  """
+
   alias TspSolver.Solver.Point
 
+  @doc """
+  Executes a greedy pathfinding algorithm for solving a travelling salesman problem.
+
+  Returns a list of points in a calculated order.
+
+  ## Parameters
+
+    - point_from: A point being a start of the path.
+    - list_of_points: List of points through which the path must be led.
+
+  """
   @spec solve_greedy(%Point{} | list(%Point{}), list(%Point{})) :: list(%Point{})
 
   def solve_greedy(point_from = %{}, list_of_points) do
@@ -9,6 +24,7 @@ defmodule TspSolver.Solver.Greedy do
 
   def solve_greedy(list_of_points_from, []) do
     list_of_points_from
+    |> Enum.reverse()
   end
 
   def solve_greedy([point_from | _] = list_of_points_from, list_of_points_to) do
