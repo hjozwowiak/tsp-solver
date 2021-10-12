@@ -6,7 +6,7 @@ defmodule TspSolverWeb.SolverChannel do
   end
 
   def handle_in("solve", %{"body" => instance}, socket) do
-    {:ok, solution} = TspSolver.Solver.solve_traveling_salesman_problem("greedy", instance)
+    {:ok, solution} = TspSolver.Solver.solve_traveling_salesman_problem(:greedy, instance)
 
     broadcast!(socket, "solution", %{body: solution})
 
