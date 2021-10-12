@@ -26,8 +26,8 @@ defmodule TspSolver.Solver.Helper do
   @spec prepare_data_to_send(list()) :: {:ok, list()}
   def prepare_data_to_send(list_of_points) do
     new_list_of_points =
-      Enum.map(list_of_points, fn %{index: index, coords: coords} ->
-        %{index: index, coords: Tuple.to_list(coords)}
+      Enum.map(list_of_points, fn point ->
+        Map.from_struct(point)
       end)
       |> Enum.reverse()
 
