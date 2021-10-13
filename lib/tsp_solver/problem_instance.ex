@@ -1,7 +1,7 @@
 defmodule TspSolver.ProblemInstance do
   import Ecto.Changeset
 
-  alias TspSolver.Solver.Point
+  alias TspSolver.Point
 
   @type t :: %__MODULE__{
           points: list(Point.t())

@@ -1,5 +1,5 @@
 defmodule TspSolver.GenerateProblemInstance do
-  alias TspSolver.Solver.Point
+  alias TspSolver.Point
   alias TspSolver.ProblemInstance
   alias TspSolver.Generator.GenerateProblemInstance.Command, as: GenerateProblemInstanceCommand
 

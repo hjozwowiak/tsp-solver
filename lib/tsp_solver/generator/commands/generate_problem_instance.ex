@@ -1,7 +1,7 @@
 defmodule TspSolver.Generator.GenerateProblemInstance.Command do
   import Ecto.Changeset
 
-  alias TspSolver.Solver.Point
+  alias TspSolver.Point
 
   @type t :: %__MODULE__{
           max_x: integer(),

@@ -3,7 +3,7 @@ defmodule TspSolver.Solver.Greedy do
   A module for executing a greedy pathfinding algorithm for solving a travelling salesman problem.
   """
 
-  alias TspSolver.Solver.Point
+  alias TspSolver.Point
 
   @doc """
   Executes a greedy pathfinding algorithm for solving a travelling salesman problem.

@@ -1,4 +1,4 @@
-defmodule TspSolver.Solver.Point do
+defmodule TspSolver.Point do
   import Ecto.Changeset
 
   @type t :: %__MODULE__{
