@@ -7,13 +7,14 @@ defmodule TspSolver.Solver.Point do
         }
 
   @fields [:coords, :index]
+  @required_fields [:coords]
 
   defstruct @fields
 
   def changeset(params) do
     %__MODULE__{}
     |> cast(params, @fields)
-    |> validate_required(@fields)
+    |> validate_required(@required_fields)
     |> validate_length(:coords, 2)
   end
 end
