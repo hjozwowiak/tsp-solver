@@ -15,6 +15,6 @@ defmodule TspSolver.ProblemInstance do
     %__MODULE__{}
     |> cast(params, @fields)
     |> validate_required(@fields)
-    |> validate_length(:coords, min: 1)
+    |> validate_length(:points, min: 1)
   end
 end
