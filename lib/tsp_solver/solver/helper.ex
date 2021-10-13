@@ -1,5 +1,5 @@
 defmodule TspSolver.Solver.Helper do
-  alias TspSolver.Solver.Point
+  alias TspSolver.Point
 
   @spec prepare_data_to_process(list()) ::
           {:ok, %{starting_point: %Point{}, list_of_points: list(%Point{})}}

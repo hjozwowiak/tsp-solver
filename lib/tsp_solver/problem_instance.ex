@@ -1,12 +1,13 @@
-defmodule TspSolver.Solver.Point do
+defmodule TspSolver.ProblemInstance do
   import Ecto.Changeset
 
+  alias TspSolver.Point
+
   @type t :: %__MODULE__{
-          coords: list(integer()),
-          index: integer()
+          points: list(Point.t())
         }
 
-  @fields [:coords, :index]
+  @fields [:points]
 
   defstruct @fields
 
@@ -14,6 +15,6 @@ defmodule TspSolver.Solver.Point do
     %__MODULE__{}
     |> cast(params, @fields)
     |> validate_required(@fields)
-    |> validate_length(:coords, 2)
+    |> validate_length(:points, min: 1)
   end
 end

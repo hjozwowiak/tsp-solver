@@ -37,6 +37,13 @@ CHANNEL.on('solution', (payload) => {
   drawPath(SOLUTION_CANVAS_CONTEXT, parsedPoints[1])
 })
 
+CHANNEL.on('problem_instance', (payload) => {
+  INSTANCE = payload.body
+  const parsedPoints = parseCoordsData(INSTANCE)
+
+  drawPoints(SOLUTION_CANVAS_CONTEXT, parsedPoints[1])
+})
+
 const parseCoordsData = (data) => {
   let indexes = []
   let points = []
@@ -116,33 +123,21 @@ const clearCanvas = (ctx, size) => {
   ctx.fillRect(0, 0, size, size)
 }
 
-const getInstance = (min, max, count) => {
-  let allPoints = [],
-    selectedPoints = []
-
-  for (let x = min; x <= max; x++) {
-    for (let y = min; y <= max; y++) {
-      allPoints.push([x, y])
-    }
-  }
-
-  for (let n = 0; n < count; n++) {
-    const randomIndex = Math.round(Math.random() * (allPoints.length - 1))
-    selectedPoints.push({ index: n, coords: allPoints[randomIndex] })
-    allPoints.splice(randomIndex, 1)
-  }
-
-  return selectedPoints
-}
-
 const generateInstance = (min, max, count) => {
+  const request_body = {
+    min_x: min,
+    max_x: max,
+    min_y: min,
+    max_y: max,
+    number_of_points: count,
+  }
+
+  CHANNEL.push('generate_instance', {
+    body: request_body,
+  })
+
   clearCanvas(SOLUTION_CANVAS_CONTEXT, SOLUTION_CANVAS_SIZE)
   SOLUTION_CANVAS_SCALE = SOLUTION_CANVAS_SIZE / max
-  INSTANCE = getInstance(min, max, count)
-
-  const parsedPoints = parseCoordsData(INSTANCE)
-
-  drawPoints(SOLUTION_CANVAS_CONTEXT, parsedPoints[1])
 }
 
 document.querySelector('#solveGreedy').addEventListener('click', () => {
